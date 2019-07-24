@@ -1,0 +1,22 @@
+<script>    
+    // Defining function to get unique values from an array
+	
+function getUnique(arr, comp) {
+
+  const unique = arr
+       .map(e => e[comp])
+
+     // store the keys of the unique objects
+    .map((e, i, final) => final.indexOf(e) === i && i)
+
+    // eliminate the dead keys & store unique objects
+    .filter(e => arr[e]).map(e => arr[e]);
+
+   return unique;
+}
+
+    
+    var arr = [{"id": 1, "name":"John"}, {"id": 2, "name":"John"}, {"id": 3, "name":"John"}, {"id": 4, "name":"John"}, {"id": 5, "name":"Harry"}, {"id": 6, "name":"Clark"}, {"id": 7, "name":"Peter"}];
+    var uniqueNames = getUnique(arr,'name');
+    console.log(uniqueNames); // Prints: ["John", "Peter", "Clark", "Harry", "Alice"]
+</script>
